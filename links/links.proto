@@ -1,0 +1,36 @@
+syntax = "proto3";
+package links;
+
+// The Customer service definition.
+service Links {
+  // Get all Links with filter - A server-to-client streaming RPC.
+  rpc GetLinks(LinksFilter) returns (stream LinkRequest) {}
+  // Get a link given id
+  rpc GetLink(LinkRequest) returns (LinkResponse) {}
+  // Create a new Link - A simple RPC
+  rpc CreateLink(LinkRequest) returns (LinkResponse) {}
+  // Update a Link
+  rpc UpdateLink(LinkRequest) returns (LinkResponse) {}
+  // Delete a Link
+  rpc DeleteLink(LinkRequest) returns (LinkResponse) {}
+}
+// Request message for creating a new link
+message LinkRequest {
+  int32 id = 1;  // Unique ID number for a Link.
+  string url = 2;
+  string category = 3;
+  string created = 4;
+  int32 done = 5;
+}
+// Response for getting a link by id
+message LinkResponse {
+  int32 id = 1;  // Unique ID number for a Link.
+  string url = 2;
+  string category = 3;
+  string created = 4;
+  int32 done = 5;
+  bool success = 6;
+}
+message LinksFilter {
+  string keyword = 1;
+}
