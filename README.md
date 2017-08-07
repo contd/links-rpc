@@ -4,6 +4,7 @@ This is a gRPC service for managing saved links for personal use and to learn gR
 
 ## Application
 
+```
 ├── client
 │   └── main.go
 ├── links
@@ -18,6 +19,7 @@ This is a gRPC service for managing saved links for personal use and to learn gR
     ├── model.go
     ├── saved.sqlite
     └── saved_test.sqlite
+```
 
 ### client
 
